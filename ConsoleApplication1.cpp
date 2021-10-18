@@ -46,7 +46,24 @@ int main()
 	////
 	////
 	////}
-	//
+	// 
+
+	/*int main() {
+	float a, b, c, d, srednia;
+	std::cout << "Podaj liczbe a ";
+	std::cin >> a;
+		std::cout << "Podaj liczbe b ";
+		std::cin >> b;
+		std::cout << "Podaj liczbe c ";
+		std::cin >> c;
+		std::cout << "Podaj liczbe d ";
+		std::cin >> d;
+srednia = (a + b + c + d) / 4;
+std::cout << "Srednia arytmeyczna liczb to = " << srednia << endl;
+return 0;
+}
+*/
+
 	int a = 1, b = 12, wybor;
 	cout << "/n==============\n";
 	cout << "\n1.Suma\n2.Roznica\,3.iloczyn\n4. Iloraz";
