@@ -91,7 +91,6 @@ int main()
 	else if (!deszcz && autobus) cout << "Dostaniesz sie na uczelnie\t" << "Milego dnia i pieknej pogody \n";
 
 	//zad 7//
-	cout << "\n\n\nZad 7:\n";
 	bool znizka, premia;
 	cout << "Napisz .......: \t", cin >> znizka;
 	cout << "Napisz ...........a: \t", cin >> premia;
