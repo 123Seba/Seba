@@ -1,166 +1,96 @@
-﻿
+﻿#include <iostream>
+#include<ctime>
+using namespace std;
 
-#include <iostream>
-using namespace  std;
 int main()
 {
-	//	// zad 1//
-	//	int i = 0, liczba;
-	//	cout << " podaj liczbe : ", cin >> liczba;
-	//
-	//	cout << " petla while : \ n";
-	//	while (i<liczba )
-	//	{
-	//		cout << i << " ";
-	//		i++;
-	//	}
-	//
-	//	i = 0;
-	//	cout << " \npetla while : \ n";
-	//	do
-	//	{
-	//		cout << i << " ";
-	//		i++;
-	//	} while (i<liczba);
-	//	cout << " \npetla for : \ n";
-	//	for (i = 0; i < liczba; i++)
-	//	{
-	//		cout << i << " ";
-	//
-	//
-	//}
-	//	//zad 2 //
-	//	int liczba;
-	//	 
-	//	do
-	//	{
-	//		cout << " podaj liczbe :", cin >> liczba;
-	//	} while (liczba >= 0);
+	srand(time(NULL));
+	int t1[10];
 
-	//	zad3 //
+	for (int i = 0, j = 3; i < 10; i++, j += 3)
+	{
+		t1[i] = j;
+		if (i % 2 == 0) cout << t1[i] << endl;
+	}
+	//___ZAD 3___________________________________________
+	const int n = 20;
+	int t2[n], a;
+	cout << "Daj a: ", cin >> a;
+	for (int i = n - 1; i >= 0; i--)
+	{
+		t2[i] = a;
+		a -= 5;
+		cout << t2[i] << endl;
+	}
+	cout << endl << endl;
+	//___ZAD 4___________________________________________
+	const int n1 = 5;
+	int t3[n1], min;
+	for (int i = 0; i < n1; i++)
+	{
+		t3[i] = rand() % 74 - 23;
+		if (i == 0)			  min = t3[i];
+		else if (min > t3[i]) min = t3[i];
+		cout << t3[i] << endl;
+	}
+	cout << endl << min;
 
-
-	//int liczba, ile_d = 0, ile_u=0, suma_d = 0, suma_u = 0;
-
-	//for (int i = 0; i < 10; i++) {
-
-	//	cout << "podaj liczbe :", cin >> liczba;
-	//	if (liczba >= 0) {
-
-	//		ile_d++;
-	//		suma_d += liczba;
-	//	}
-	//	else {
-	//		ile_u++;
-	//		suma_u += liczba;
-
-	//	} //koniec petli 
-
-	//	cout << "suma liczb dodatnich : " << suma_d << ", ilość liczb dodatnich : " << ile_d << endl;
-	//	cout << "suma liczb ujemnych  : " << suma_d << ", ilość liczb ujemnych  : " << ile_d << endl;
-
-
-	//}
-
-	//zad 4//
-
-	///*int n, liczba, suma = 0;
-	//cout << "podaj n: ", cin >> n;
-
-	//if (n > 0) {
-	//	for (int i = 0; i < n; i++) {
-	//		cout << "podaj  liczbe : ", cin >> liczba;
-	//		if (liczba % 2 == 0) suma += liczba;
-	//	}
-	//	cout << "suma liczb parzystych : " << suma << endl;
-	//}
-	//else cout << "n nie moze byc <\ n";
+	cout << endl << endl;
+	//___ZAD 5___________________________________________
+	const int n2 = 10;
+	int t4[n2] = { 2,3 };
+	for (int i = 2; i < n2; i++)
+	{
+		t4[i] = t4[i - 1] + t4[i - 2];
+		cout << t4[i] << endl;
+	}
+	cout << endl << endl;
+	//___ZAD 6___________________________________________
+	int t5[20] = { 1,2,3,4,5,6,7,8,9,10 };
+	for (int i = 10; i < 20; i++) {
+		t5[i] = t5[i - 10];
+		cout << t5[i] << endl;		//pokazuje od t5[10]
+	}
+	cout << endl << endl;
+	//___ZAD 7___________________________________________
+	const int n3 = 5;
+	int t6[n3][n3], suma = 0;
+	for (int i = 0, j = 0; i < n3; i++, j++)
+		t6[i][j] = 7;
 
 
+	for (int i = 0, j = 0; i < n3; i++, j++)
+		suma += t6[i][j];
+	cout << suma << endl << endl;
+
+	//zad 8//
+	int main()
+	{
+		const int a = 2, b = 3;
+		int A[a][b], B[a][b], W[a][b];
 
 
-	//zad 5 //
-	//int  liczba;
-	//srand(time(null));
-	//for (int i = 0; i < 5; i++) {
-	//	liczba = ;
-	//	rand ()  %11 - 5; // -5 ,5
-	//	rand () % 9 + 1; // 1 , 10 
-	//	rand () % 11 ;     // 0 , 10
-	// }
+		//wczytanie wartości pierwszej macierzy
+		for (int i = 0; i < a; i++) //pętla odpowiedzialna za wiersze
+			for (int j = 0; j < b; j++) //pętla odpowiedzialna za ilość liczb w wierszu
+				cin >> A[i][j]; //wczytanie elementów pierwszej macierzy
 
+	//wczytanie wartości drugiej macierzy
+		for (int i = 0; i < a; i++)
+			for (int j = 0; j < b; j++)
+			{
+				cin >> B[i][j];
+				W[i][j] = A[i][j] + B[i][j]; //dodanie do siebie macierzy A i B
+			}
 
+		//prezentacja wyniku
 
-	// zad 1 //
-	//{
-	//	int i{ 1 }, n, sumaP{ 0 };
-	//	cout << "Podaj liczbe studentow: ", cin >> n;
-	//	while (n < 1 || n>100) cout << "Podaj WLASCIWA liczbe studentow: ", cin >> n;
+		for (int i = 0; i < a; i++)
+		{
+			for (int j = 0; j < b; j++)
+				cout << W[i][j] << " ";
+			cout << endl; //oddzielenie wierszy znakiem nowej linii
+		}
 
-	//	while (i <= n) {
-	//		int punkt;
-	//		cin >> punkt;
-	//		if (punkt >= 0 && punkt <= 100)
-	//			sumaP += punkt;
-	//		else continue;
-	//		i++;
-
-	//	}
-	//	cout << "Srednia punktow w grupie = " << (float)sumaP / n << endl;
-	//	//NIESKOŃCZONA PĘTLA//
-	//		while (true) {
-	//			int punkt;
-	//			cin >> punkt;
-	//			if (punkt >= 0 && punkt <= 100)
-	//				sumaP += punkt;
-	//			else continue;
-	//			i++;
-	//		}
-	//		cout << "Srednia punktow w grupie = " << (float)sumaP / n << endl;
-	//	//PĘTLA DO_WHILE //
-	//		sumaP = 0;
-	//		 do{
-	//			int punkt;
-	//			cin >> punkt;
-	//			if (punkt >= 0 && punkt <= 100)
-	//				sumaP += punkt;
-	//			else continue;
-	//			i++;
-	//		 } while (true);
-	//		cout << "Srednia punktow w grupie = " << (float)sumaP / n << endl;
-	//	*/
-	//	// zad 5 //
-	//	for (int j = 1; j <= 100; j++)	cout << j << " ";
-	//	cout << "\n\n";
-	//	for (int j = 100; j >= 0; j--)	cout << j << " ";
-	//	cout << "\n\n";
-	//	for (int j = 7; j <= 77; j += 7)	cout << j << " ";
-	//	cout << "\n\n";
-	//	for (int j = 20; j >= 0; j -= 2)	cout << j << " ";
-	//	cout << "\n\n";
-
-	//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
+		return 0;
+	}
