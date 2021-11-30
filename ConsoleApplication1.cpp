@@ -1,96 +1,91 @@
 ﻿#include <iostream>
-#include<ctime>
 using namespace std;
 
 int main()
 {
-	srand(time(NULL));
-	int t1[10];
+	//TEORIA
+	/*
+		int tab[5]; // null '\0' automatycznie
+		char tab0[] = "witaj";						 //null '\0' automatycznie		tab jest maxymalnie wielka
+		char tab1[] = { 'w','i','t','a','j','\0' }; //null '\0' - potrzebny			tab ma 6 elem
+		char tab2[5] = { 'w','i','t','a','j' };		 //null '\0' automatycznie		tab ma 6 elem
+	//______
+		char znaki[100]; cout << "Daj imie i nazwisko: ";
+		cin.getline(znaki, 100).get();					 //
+		cout << "Imie i nazwisko: " << znaki << endl;
 
-	for (int i = 0, j = 3; i < 10; i++, j += 3)
-	{
-		t1[i] = j;
-		if (i % 2 == 0) cout << t1[i] << endl;
-	}
-	//___ZAD 3___________________________________________
-	const int n = 20;
-	int t2[n], a;
-	cout << "Daj a: ", cin >> a;
-	for (int i = n - 1; i >= 0; i--)
-	{
-		t2[i] = a;
-		a -= 5;
-		cout << t2[i] << endl;
-	}
-	cout << endl << endl;
-	//___ZAD 4___________________________________________
-	const int n1 = 5;
-	int t3[n1], min;
-	for (int i = 0; i < n1; i++)
-	{
-		t3[i] = rand() % 74 - 23;
-		if (i == 0)			  min = t3[i];
-		else if (min > t3[i]) min = t3[i];
-		cout << t3[i] << endl;
-	}
-	cout << endl << min;
+		cout << "Ponownie daj imie i nazwisko: ";
+		cin.get(znaki, 100);
+		cout << znaki;
 
-	cout << endl << endl;
-	//___ZAD 5___________________________________________
-	const int n2 = 10;
-	int t4[n2] = { 2,3 };
-	for (int i = 2; i < n2; i++)
-	{
-		t4[i] = t4[i - 1] + t4[i - 2];
-		cout << t4[i] << endl;
-	}
-	cout << endl << endl;
-	//___ZAD 6___________________________________________
-	int t5[20] = { 1,2,3,4,5,6,7,8,9,10 };
-	for (int i = 10; i < 20; i++) {
-		t5[i] = t5[i - 10];
-		cout << t5[i] << endl;		//pokazuje od t5[10]
-	}
-	cout << endl << endl;
-	//___ZAD 7___________________________________________
-	const int n3 = 5;
-	int t6[n3][n3], suma = 0;
-	for (int i = 0, j = 0; i < n3; i++, j++)
-		t6[i][j] = 7;
+		//strcpy_s(a,b) -- kopiuje z tab a do b
+		//strcat_s(a,b)
+		//strcmp(a,b)  -- zwraca 0 jeśli łańcuchy są indentyczne; 1 jeśli różne
+		//strlen(a) -- zwr ilość elem tablicy (jak jest "Jan" to 3)
+		//size
+		//sizeof(a) / sizeof(a[0])
+	//	string imie;
+	//	imie.append
+	//	imie.push_back;
+	*/
+	//____
+	char zdanie1[] = { "lot" };			//jest tablicą o maksymalnej długości; zdefiniowana w sposób (?)ciągły
+	char zdanie2[] = { 'l','o','t' };	//jest tablicą o długości 4; zdefiniowana w sposób (?)nieciągły
+	int liczby[100];
+	char znaki[100];
+	//cin>>liczby; // -- żle, trzeba podać numer komórki
+	//cin>>znaki; // --dobrze, ale nie pokaże tego co zapisze po spacji (mimo że zapisze)
+//__ZAD3_______________________________________
+	char  tab[] = "wiosna";
+	cout << tab << " " << strlen(tab) << endl;
+
+	//__ZAD4_______________________________________
+	char s1[100], s2[100];
+	cin.getline(s1, 100);
+	cin.getline(s2, 100);
+	cout << s1 << "\t" << strlen(s1) << endl;
+	cout << s2 << "\t" << strlen(s2) << endl;
+
+	strcpy_s(s1, s2);		//s2 do s1 --- zamienia treść s1 na treść s2
+	cout << s1 << "\t" << strlen(s1) << endl;
+	cout << s2 << "\t" << strlen(s2) << endl;
+
+	strcat_s(s1, s2);	//s1 potem s2
+	cout << s1 << "\t" << strlen(s1) << endl << endl;
+
+	//__ZAD5_________________________________________
+	char adres[30], nr[8], staz1[4]; int ocena;
+	cout << "Podaj nazwę ulicy na której mieszkasz: ", cin.getline(adres, 30);
+	cout << "Podaj nr domu: ", cin.getline(nr, 8);
+	cout << "Na ile oceniasz swoje umiejętności programowania w skali [2 - 5]: "; cin >> ocena;
+	cout << "Twoj staz programistyczny: "; cin.getline(staz1, 4);		 
+
+	cout << "Twoj staz programistyczny: "; cin.getline(staz1, 4);		
+
+	strcat_s(adres, nr);
+	cout << "Adres: " << adres << endl;
+	if (ocena < 2)		cout << "Ocena: 2" << endl;
+	else if (ocena > 6) cout << "Ocena: 5" << endl;
+	else				cout << "Ocena: " << ocena - 1 << endl;
+
+	cout << "Staz: " << staz1 << " dni" << endl << endl;
+
+	//__ZAD6_________________________________________
+	char tekst[100];
+	int a = 0, c = 0;
+	cout << "Wpisz tekst: ", cin.getline(tekst, 100);
+
+	//	char tekst[] = { "ameryka"};
 
 
-	for (int i = 0, j = 0; i < n3; i++, j++)
-		suma += t6[i][j];
-	cout << suma << endl << endl;
-
-	//zad 8//
-	int main()
-	{
-		const int a = 2, b = 3;
-		int A[a][b], B[a][b], W[a][b];
-
-
-		//wczytanie wartości pierwszej macierzy
-		for (int i = 0; i < a; i++) //pętla odpowiedzialna za wiersze
-			for (int j = 0; j < b; j++) //pętla odpowiedzialna za ilość liczb w wierszu
-				cin >> A[i][j]; //wczytanie elementów pierwszej macierzy
-
-	//wczytanie wartości drugiej macierzy
-		for (int i = 0; i < a; i++)
-			for (int j = 0; j < b; j++)
-			{
-				cin >> B[i][j];
-				W[i][j] = A[i][j] + B[i][j]; //dodanie do siebie macierzy A i B
-			}
-
-		//prezentacja wyniku
-
-		for (int i = 0; i < a; i++)
+	//	int ttt[] = { 1,2,3,1,5,6,7,11 };
+	for (char b : tekst) {
+		if (b == 'a' || b == 'o' || b == 'e' || b == 'i' || b == 'u' || b == 'y') { a++; }
+		else if (b == 'q' || b == 'w' || b == 'r' || b == 't' || b == 'p' || b == 's' || b == 'd' || b == 'f' || b == 'g' || b == 'h' || b == 'j' || b == 'k' || b == 'l' || b == 'z' || b == 'x' || b == 'c' || b == 'v' || b == 'b' || b == 'n' || b == 'm')
 		{
-			for (int j = 0; j < b; j++)
-				cout << W[i][j] << " ";
-			cout << endl; //oddzielenie wierszy znakiem nowej linii
+			c++;
 		}
-
-		return 0;
 	}
+	cout << "Samoglosek \t" << a << endl;
+	cout << "Spolglosek \t" << c;
+}
